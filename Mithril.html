@@ -12,8 +12,8 @@
     let count = 0
 
     // your code goes here!
-    let Component = {
-      view: function() {
+    let Click = {
+      view: () => {
         return m("main", [
           m("h1", {"class": "title"}, `${count} Clicks`),
           m("button", {onclick: function() {count++}}, "CLICKY CLICKY!")
@@ -21,7 +21,16 @@
       }
     }
 
-    m.mount(root, Component)
+    let Splash = {
+      view: () => {
+        return m("a", {href: "#!/click"}, "Enter if you dare!")
+      }
+    }
+
+    m.route(root, "/splash", {
+      "/splash": Splash,
+      "/click": Click
+    })
     </script>
 </body>
 </html>
