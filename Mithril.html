@@ -8,9 +8,20 @@
 <body>
   <script src="https://unpkg.com/mithril/mithril.js"></script>
   <script>
-    var root = document.body
+    let root = document.body
+    let count = 0
 
     // your code goes here!
+    let Component = {
+      view: function() {
+        return m("main", [
+          m("h1", {"class": "title"}, `${count} Clicks`),
+          m("button", {onclick: function() {count++}}, "CLICKY CLICKY!")
+        ])
+      }
+    }
+
+    m.mount(root, Component)
     </script>
 </body>
 </html>
